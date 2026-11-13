@@ -6,7 +6,1130 @@
     <title>Polaris Consultants® | Global Education, IT & Aviation Career Advisory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;7<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris Consultants® | Global Education, IT & Aviation Career Advisory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .brand-gradient { background: linear-gradient(135deg, #071327 0%, #0f2952 55%, #163a70 100%); }
+        .offer-gradient-1 { background: linear-gradient(90deg, #e11d48 0%, #f97316 100%); }
+        .offer-gradient-2 { background: linear-gradient(90deg, #0284c7 0%, #10b981 100%); }
+        .offer-gradient-3 { background: linear-gradient(90deg, #7c3aed 0%, #e11d48 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float { animation: pulse-green 2s infinite; }
+        .offer-slide { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .offer-slide.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0.4; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Top Address & Quick Info Bar -->
+    <div class="bg-[#071327] text-slate-300 text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5">
+            <div>
+                <i class="fas fa-map-marker-alt text-red-500 mr-1.5"></i>
+                <span id="displayAddressTop">Zam Zam Mall, H3 Block, Near Moghal Eye Hospital, Lahore</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-emerald-400 font-semibold"><i class="fas fa-circle text-[7px] mr-1.5"></i> <span id="displayIntakeTop">Admissions Open 2026/2027</span></span>
+                <span class="hidden md:inline text-slate-500">|</span>
+                <button onclick="openWhatsApp('Hello Polaris Consultants! I need quick information.')" class="hover:text-white transition cursor-pointer font-semibold">
+                    <i class="fab fa-whatsapp text-emerald-400 mr-1"></i> <span id="displayPhoneTop">0316-7652747</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-3">
+                    <img src="Polaris%20Consultants%20Ribbon%20Star%20Logo.png" onerror="this.onerror=null; this.src='Polaris Consultants Ribbon Star Logo.png';" alt="Polaris Consultants Logo" class="h-14 w-auto object-contain">
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-7 font-semibold text-sm text-slate-700">
+                    <a href="#offers" class="text-red-600 hover:text-red-700 flex items-center gap-1.5 transition">
+                        <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span> Live Offers
+                    </a>
+                    <a href="#programs" class="hover:text-blue-700 transition">Programs</a>
+                    <a href="#universities" class="hover:text-blue-700 transition">Universities</a>
+                    <a href="#destinations" class="hover:text-blue-700 transition">Destinations</a>
+                    <a href="#assessment" class="hover:text-blue-700 transition">Free Assessment</a>
+                </div>
+
+                <div class="flex items-center gap-2.5">
+                    <button onclick="openWhatsApp('Hello Polaris Consultants! I visited your website and want to discuss my study/career options.')" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-4 sm:px-5 py-2.5 rounded-full text-sm flex items-center gap-2 shadow-md transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Chat on WhatsApp</span>
+                    </button>
+                    <button onclick="openAdminModal()" title="Admin ERP & CRM Portal" class="px-3.5 py-2.5 rounded-full bg-[#071327] hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 transition cursor-pointer shadow">
+                        <i class="fas fa-user-shield text-amber-400"></i>
+                        <span class="hidden sm:inline">Admin ERP</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DYNAMIC RUNNING OFFER BANNER SLIDER -->
+    <section id="offers" class="relative overflow-hidden shadow-md">
+        <div id="offersContainer"></div>
+        <button onclick="changeSlide(-1)" aria-label="Previous Offer" class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/25 hover:bg-black/40 text-white items-center justify-center text-xs cursor-pointer">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button onclick="changeSlide(1)" aria-label="Next Offer" class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/25 hover:bg-black/40 text-white items-center justify-center text-xs cursor-pointer">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="brand-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-bold tracking-wide uppercase">
+                        <i class="fas fa-star text-red-400"></i> Polaris Consultants® • Lahore
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                        Guiding Your Future to <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-red-400">Global Success</span>
+                    </h1>
+                    <p class="text-slate-200 text-lg max-w-2xl leading-relaxed">
+                        Authorized educational & career consultants specializing in International Higher Education, Software Engineering, Associate Degrees, and Cabin Crew Aviation Training.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <button onclick="openWhatsApp('Hi Polaris Consultants! I want free career and study abroad counseling.')" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-3 shadow-lg transition cursor-pointer">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>Direct WhatsApp Counseling</span>
+                        </button>
+                        <a href="#universities" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2 transition">
+                            <span>Partner Universities</span>
+                            <i class="fas fa-university text-sm"></i>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/15 max-w-lg">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">98%</div>
+                            <div class="text-xs text-slate-300 mt-1">Admission Success</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-amber-300">50+</div>
+                            <div class="text-xs text-slate-300 mt-1">Partner Institutions</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-sky-300">100%</div>
+                            <div class="text-xs text-slate-300 mt-1">Direct Guidance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant Lead Capture + WhatsApp Box -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border-t-4 border-red-600">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="text-xs font-bold text-red-600 uppercase">Free Evaluation</span>
+                                <h3 class="text-xl font-extrabold text-[#071327]">Instant WhatsApp Callback</h3>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-emerald-50 text-[#25D366] flex items-center justify-center text-2xl">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                        </div>
+                        <form id="quickWhatsAppForm" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Full Name *</label>
+                                <input type="text" id="leadName" required placeholder="Enter your full name" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Mobile / WhatsApp Number *</label>
+                                <input type="tel" id="leadPhone" required placeholder="03XX-XXXXXXX" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Select Program / Offer</label>
+                                <select id="leadProgram" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm bg-white"></select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Last Qualification & Marks *</label>
+                                <input type="text" id="leadQual" required placeholder="e.g., Inter / A-Levels / Bachelors (75%)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm">
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md cursor-pointer">
+                                <span>Send Directly to WhatsApp</span>
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURED PROGRAMS SECTION -->
+    <section id="programs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-red-600">Specialized Career Streams</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#071327] mt-2">Our Flagship Programs</h2>
+                <p class="text-slate-600 mt-3">Choose a career-focused international pathway tailored to your academic background and future ambitions.</p>
+            </div>
+            <div id="programsContainer" class="grid md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC PARTNER UNIVERSITIES DIRECTORY -->
+    <section id="universities" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-blue-600">Global Academic Network</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#071327] mt-2">Featured Partner Universities</h2>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! Please share the complete list of partner universities and scholarships.')" class="text-sm font-bold text-red-600 hover:underline flex items-center gap-2 cursor-pointer">
+                    <span>Request Full University List on WhatsApp</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div id="universitiesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC STUDY DESTINATIONS -->
+    <section id="destinations" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-600">Global Destinations</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#071327] mt-2">Where Do You Want to Study?</h2>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! Help me choose the best country according to my budget and marks.')" class="text-sm font-bold text-blue-600 hover:underline flex items-center gap-2 cursor-pointer">
+                    <span>Need country comparison? Chat on WhatsApp</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div id="destinationsContainer" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- Detailed Assessment & Lahore Office Location -->
+    <section id="assessment" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-red-600">Visit Us or Chat Online</span>
+                    <h2 class="text-3xl font-extrabold text-[#071327]">Polaris Consultants® Head Office</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Visit our office for a face-to-face counseling session or send your academic details directly to our WhatsApp desk for an instant response.
+                    </p>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-[#071327] text-sm">Office Address</h5>
+                                <p id="displayAddressMain" class="text-sm text-slate-600">Zam Zam Mall, H3 Block, Near Moghal Eye Hospital, Lahore, Pakistan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-[#25D366] flex items-center justify-center shrink-0">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-[#071327] text-sm">Direct WhatsApp Helpline</h5>
+                                <p id="displayPhoneMain" class="text-sm font-semibold text-slate-700">0316-7652747</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-[#071327] text-sm">Timings</h5>
+                                <p id="displayTimingsMain" class="text-sm text-slate-600">Monday – Saturday: 10:00 AM – 7:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! Please share your Lahore office Google Maps location pin. I want to visit.')" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2 shadow-md transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Get Office Location Pin on WhatsApp</span>
+                    </button>
+                </div>
+
+                <!-- Detailed WhatsApp Form -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
+                    <h3 class="text-2xl font-extrabold text-[#071327]">Free Profile Assessment Form</h3>
+                    <p class="text-sm text-slate-500 mt-1 mb-6">Submit your details — your profile is saved in our system and opens directly in WhatsApp.</p>
+
+                    <form id="detailedWhatsAppForm" class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Student Name *</label>
+                            <input type="text" id="detName" required placeholder="Full Name" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Phone / WhatsApp *</label>
+                            <input type="tel" id="detPhone" required placeholder="03XX-XXXXXXX" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">City *</label>
+                            <input type="text" id="detCity" required placeholder="e.g., Lahore" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Preferred Country *</label>
+                            <select id="detCountry" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:border-blue-600"></select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Desired Program *</label>
+                            <select id="detStream" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:border-blue-600"></select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Last Degree & Marks *</label>
+                            <input type="text" id="detEdu" required placeholder="e.g., Inter 78% / BS 3.2 CGPA" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-bold text-slate-600 mb-1">IELTS / PTE Status</label>
+                            <select id="detEnglish" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:border-blue-600">
+                                <option value="Not Taken Yet (Need MOI Option)">Not Taken Yet (Need MOI Option)</option>
+                                <option value="IELTS / PTE Completed">IELTS / PTE Completed</option>
+                                <option value="Planning to Take Soon">Planning to Take Soon</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2 pt-2">
+                            <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-extrabold py-4 rounded-xl text-base flex items-center justify-center gap-2 shadow-lg transition cursor-pointer">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                                <span>Send Assessment on WhatsApp</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#071327] text-slate-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2 rounded-lg">
+                    <img src="Polaris%20Consultants%20Ribbon%20Star%20Logo.png" onerror="this.onerror=null; this.src='Polaris Consultants Ribbon Star Logo.png';" alt="Polaris Consultants" class="h-10 w-auto">
+                </div>
+                <div>
+                    <span class="font-extrabold text-white block">POLARIS CONSULTANTS®</span>
+                    <span id="displayAddressFooter" class="text-xs block">Zam Zam Mall, H3 Block, Near Moghal Eye Hospital, Lahore</span>
+                    <span class="text-xs text-emerald-400 font-semibold">WhatsApp: <span id="displayPhoneFooter">0316-7652747</span></span>
+                </div>
+            </div>
+            <div class="text-xs text-center md:text-right flex flex-col items-center md:items-end gap-2">
+                <span>&copy; 2026 Polaris Consultants. All Rights Reserved.</span>
+                <button onclick="openAdminModal()" class="text-amber-400 hover:text-amber-300 font-semibold underline cursor-pointer">Open Admin ERP & CRM Portal</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <button onclick="openWhatsApp('Hello Polaris Consultants! I visited your website and need guidance.')" aria-label="Chat on WhatsApp" class="whatsapp-float fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#1ebe5d] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition cursor-pointer">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </button>
+
+    <!-- ==================== FULL ERP & CRM ADMIN PORTAL MODAL ==================== -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm overflow-y-auto p-2 sm:p-4">
+        <div class="max-w-6xl mx-auto my-4 bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
+            <!-- Admin Top Header -->
+            <div class="bg-[#071327] text-white px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-user-shield text-amber-400 text-xl"></i>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg leading-none">Polaris Consultants® — Complete ERP & Admin Portal</h3>
+                        <span class="text-[11px] text-slate-400">Leads • Finance • Universities • Programs • Visa Tracker • Website CMS</span>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white text-xl cursor-pointer"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Login Screen -->
+            <div id="adminLoginView" class="p-10 max-w-md mx-auto text-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mx-auto">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h4 class="text-xl font-extrabold text-[#071327]">Admin Portal Login</h4>
+                <p class="text-xs text-slate-500">Enter password to access Leads, Finance, Universities, Programs & Live Offers.</p>
+                <input type="password" id="adminPasswordInput" placeholder="Password (Default: polaris2026)" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-blue-600">
+                <p id="loginErrorMsg" class="text-xs text-red-600 hidden font-semibold">Incorrect password! Try again.</p>
+                <button onclick="verifyAdminLogin()" class="w-full bg-[#071327] hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition cursor-pointer">
+                    Access Complete Dashboard
+                </button>
+            </div>
+
+            <!-- Main ERP Dashboard -->
+            <div id="adminDashboardView" class="hidden p-4 sm:p-6 space-y-6">
+                <!-- Executive KPI Summary Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="bg-blue-50 border border-blue-100 p-3.5 rounded-xl">
+                        <span class="text-[11px] font-bold text-blue-600 uppercase">Total Student Leads</span>
+                        <div id="kpiTotalLeads" class="text-2xl font-extrabold text-[#071327] mt-0.5">0</div>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-100 p-3.5 rounded-xl">
+                        <span class="text-[11px] font-bold text-emerald-600 uppercase">Total Fee Collected</span>
+                        <div id="kpiTotalPaid" class="text-2xl font-extrabold text-emerald-700 mt-0.5">Rs 0</div>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-100 p-3.5 rounded-xl">
+                        <span class="text-[11px] font-bold text-amber-700 uppercase">Pending Receivables</span>
+                        <div id="kpiTotalPending" class="text-2xl font-extrabold text-amber-700 mt-0.5">Rs 0</div>
+                    </div>
+                    <div class="bg-purple-50 border border-purple-100 p-3.5 rounded-xl">
+                        <span class="text-[11px] font-bold text-purple-700 uppercase">Net Profit (After Exp.)</span>
+                        <div id="kpiNetProfit" class="text-2xl font-extrabold text-purple-700 mt-0.5">Rs 0</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+                    <button onclick="switchAdminTab('tabLeads', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-[#071327] text-white cursor-pointer"><i class="fas fa-users mr-1"></i> 1. Lead Generation</button>
+                    <button onclick="switchAdminTab('tabFinance', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 cursor-pointer"><i class="fas fa-wallet mr-1"></i> 2. Finance & Accounts</button>
+                    <button onclick="switchAdminTab('tabUniversities', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 cursor-pointer"><i class="fas fa-university mr-1"></i> 3. Universities</button>
+                    <button onclick="switchAdminTab('tabPrograms', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 cursor-pointer"><i class="fas fa-graduation-cap mr-1"></i> 4. Programs</button>
+                    <button onclick="switchAdminTab('tabOffers', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 cursor-pointer"><i class="fas fa-bullhorn mr-1"></i> 5. Offer Banners & Countries</button>
+                    <button onclick="switchAdminTab('tabSettings', this)" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 cursor-pointer"><i class="fas fa-cog mr-1"></i> 6. Settings & Publish</button>
+                </div>
+
+                <!-- ==================== TAB 1: LEAD GENERATION CRM ==================== -->
+                <div id="tabLeads" class="admin-tab-content space-y-5">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-sm text-[#071327]">+ Add Walk-in / Call Student Lead</h4>
+                            <button onclick="exportCSV('leads')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg cursor-pointer"><i class="fas fa-file-excel mr-1"></i> Export Leads Excel</button>
+                        </div>
+                        <div class="grid sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+                            <input type="text" id="crmLeadName" placeholder="Student Name *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="crmLeadPhone" placeholder="Phone / WhatsApp *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="crmLeadCity" placeholder="City (e.g., Lahore)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="crmLeadQual" placeholder="Qualification & Marks" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="crmLeadProg" placeholder="Interested Program / Country" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <select id="crmLeadStatus" class="px-3 py-2 rounded-lg border border-slate-300 text-xs bg-white">
+                                <option value="New Lead">Status: New Lead</option>
+                                <option value="Follow-up">Status: Follow-up</option>
+                                <option value="Offer Applied">Status: Offer Applied</option>
+                                <option value="Visa Filed">Status: Visa Filed</option>
+                                <option value="Visa Approved">Status: Visa Approved</option>
+                            </select>
+                        </div>
+                        <button onclick="addLeadManual()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Save Student Lead</button>
+                    </div>
+
+                    <div class="overflow-x-auto bg-white border border-slate-200 rounded-xl">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead class="bg-slate-100 text-slate-700 font-bold uppercase">
+                                <tr>
+                                    <th class="p-3">Date</th>
+                                    <th class="p-3">Student & Phone</th>
+                                    <th class="p-3">Qualification</th>
+                                    <th class="p-3">Program / Country</th>
+                                    <th class="p-3">Application Stage</th>
+                                    <th class="p-3 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminLeadsTable" class="divide-y divide-slate-200"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 2: FINANCE & ACCOUNTS ==================== -->
+                <div id="tabFinance" class="admin-tab-content hidden space-y-6">
+                    <div class="grid lg:grid-cols-2 gap-4">
+                        <!-- Student Fee Entry -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                            <h4 class="font-bold text-sm text-[#071327]">+ Record Student Fee / Invoice</h4>
+                            <div class="grid sm:grid-cols-2 gap-2.5">
+                                <input type="text" id="finStudent" placeholder="Student Name *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                                <input type="text" id="finPurpose" placeholder="Fee Type (e.g., Consultancy / Visa / Uni Fee)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                                <input type="number" id="finTotal" placeholder="Total Agreed Fee (PKR) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                                <input type="number" id="finPaid" placeholder="Amount Paid Now (PKR) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            </div>
+                            <button onclick="addFinanceRecord()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add Fee Record</button>
+                        </div>
+
+                        <!-- Office Expense Entry -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                            <h4 class="font-bold text-sm text-[#071327]">+ Record Office Expense (Ads / Rent / Staff)</h4>
+                            <div class="grid sm:grid-cols-2 gap-2.5">
+                                <input type="text" id="expTitle" placeholder="Expense Details (e.g., Meta Ads / Office Rent) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                                <input type="number" id="expAmount" placeholder="Expense Amount (PKR) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            </div>
+                            <button onclick="addExpenseRecord()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add Expense</button>
+                        </div>
+                    </div>
+
+                    <!-- Fee Ledger Table -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-sm text-[#071327]">Student Fee Ledger</h4>
+                            <button onclick="exportCSV('finance')" class="bg-[#071327] text-white text-xs font-bold px-3 py-1.5 rounded-lg cursor-pointer"><i class="fas fa-file-excel mr-1"></i> Export Finance Report</button>
+                        </div>
+                        <div class="overflow-x-auto bg-white border border-slate-200 rounded-xl">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead class="bg-slate-100 text-slate-700 font-bold uppercase">
+                                    <tr>
+                                        <th class="p-3">Date</th>
+                                        <th class="p-3">Student</th>
+                                        <th class="p-3">Fee Purpose</th>
+                                        <th class="p-3">Total Fee</th>
+                                        <th class="p-3">Paid</th>
+                                        <th class="p-3">Balance Due</th>
+                                        <th class="p-3 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminFinanceTable" class="divide-y divide-slate-200"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Expenses Table -->
+                    <div>
+                        <h4 class="font-bold text-sm text-[#071327] mb-2">Office Expenses Log</h4>
+                        <div id="adminExpensesList" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 3: UNIVERSITIES DIRECTORY ==================== -->
+                <div id="tabUniversities" class="admin-tab-content hidden space-y-5">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-sm text-[#071327]">+ Add Partner University</h4>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <input type="text" id="uniName" placeholder="University Name (e.g., University of Hertfordshire) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="uniCountry" placeholder="Country & City (e.g., UK • Hatfield) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="uniFee" placeholder="Annual Tuition / Scholarship (e.g., £14,500 | £2,000 Off)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <input type="text" id="uniReq" placeholder="Entry / English Requirement (e.g., MOI Accepted / 60% Marks)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="uniIntake" placeholder="Upcoming Intakes (e.g., Jan / May / Sep 2026)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <button onclick="addUniversity()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add University to Website</button>
+                    </div>
+                    <div id="adminUniversitiesList" class="space-y-2"></div>
+                </div>
+
+                <!-- ==================== TAB 4: PROGRAMS & COURSES ==================== -->
+                <div id="tabPrograms" class="admin-tab-content hidden space-y-5">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-sm text-[#071327]">+ Add New Program / Course</h4>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <input type="text" id="newProgTag" placeholder="Badge Tag (e.g., High Demand)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="newProgTitle" placeholder="Program Name (e.g., BS Software Engineering) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <select id="newProgColor" class="px-3 py-2 rounded-lg border border-slate-300 text-xs bg-white">
+                                <option value="blue">Blue Accent</option>
+                                <option value="emerald">Green Accent</option>
+                                <option value="red">Red Accent</option>
+                            </select>
+                        </div>
+                        <textarea id="newProgDesc" rows="2" placeholder="Program details, duration, and career scope *" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs"></textarea>
+                        <input type="text" id="newProgBullets" placeholder="Key Highlights separated by comma (e.g., 50% Scholarship, Paid Internship, No IELTS)" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <button onclick="addProgram()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add Program</button>
+                    </div>
+                    <div id="adminProgramsList" class="space-y-2"></div>
+                </div>
+
+                <!-- ==================== TAB 5: OFFER BANNERS & COUNTRIES ==================== -->
+                <div id="tabOffers" class="admin-tab-content hidden space-y-6">
+                    <!-- Offers -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-sm text-[#071327]">+ Add Running Promotional Offer Banner</h4>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <input type="text" id="newOfferBadge" placeholder="Tag (e.g., Limited Offer)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <select id="newOfferColor" class="px-3 py-2 rounded-lg border border-slate-300 text-xs bg-white">
+                                <option value="offer-gradient-1">Red / Orange Banner</option>
+                                <option value="offer-gradient-2">Blue / Green Banner</option>
+                                <option value="offer-gradient-3">Purple / Pink Banner</option>
+                            </select>
+                            <input type="text" id="newOfferBtn" placeholder="Button Text (e.g., Claim Offer)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <input type="text" id="newOfferText" placeholder="Offer Headline *" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <button onclick="addOffer()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add Offer Banner</button>
+                    </div>
+                    <div id="adminOffersList" class="space-y-2"></div>
+
+                    <!-- Destinations -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-sm text-[#071327]">+ Add Study Country</h4>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <input type="text" id="newDestFlag" placeholder="Flag Emoji (e.g., 🇩🇪)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="newDestName" placeholder="Country Name (e.g., Germany) *" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                            <input type="text" id="newDestSub" placeholder="Highlights (e.g., Free Public Unis • Work Visa)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <button onclick="addDestination()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">+ Add Country</button>
+                    </div>
+                    <div id="adminDestinationsList" class="space-y-2"></div>
+                </div>
+
+                <!-- ==================== TAB 6: SETTINGS & PUBLISH ==================== -->
+                <div id="tabSettings" class="admin-tab-content hidden space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">WhatsApp Number (923167652747 format)</label>
+                            <input type="text" id="setWaNumber" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Display Phone Number</label>
+                            <input type="text" id="setPhoneDisplay" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Top Bar Intake Text</label>
+                            <input type="text" id="setIntakeText" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Admin Password</label>
+                            <input type="text" id="setAdminPass" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Office Address</label>
+                            <input type="text" id="setAddress" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button onclick="saveSettings()" class="bg-[#071327] hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-lg text-xs cursor-pointer">Save Settings</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-900 space-y-2">
+                        <p class="font-bold text-sm"><i class="fas fa-cloud-upload-alt mr-1"></i> Website Changes Ko Sab Visitors Ke Liye Live Karna:</p>
+                        <p>Neeche <strong>"Copy Public Website Data"</strong> par click karke GitHub par <code>index.html</code> mein <code>const DEFAULT_SITE_DATA = ...</code> replace kar dein (note: aap ke private Leads aur Finance records aap ke browser mein hi mehfooz rehte hain, public file mein leak nahi hote).</p>
+                        <textarea id="exportDataBox" rows="6" readonly class="w-full p-3 rounded-xl bg-slate-900 text-emerald-400 font-mono text-xs"></textarea>
+                        <button onclick="copyExportedData()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer">Copy Public Website Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SITE DATA & COMPLETE ERP ENGINE ==================== -->
+    <script>
+        const DEFAULT_SITE_DATA = {
+            adminPassword: "polaris2026",
+            whatsappNumber: "923167652747",
+            phoneDisplay: "0316-7652747",
+            intakeText: "Admissions Open 2026/2027",
+            address: "Zam Zam Mall, H3 Block, Near Moghal Eye Hospital, Lahore, Pakistan",
+            timings: "Monday – Saturday: 10:00 AM – 7:00 PM",
+            offers: [
+                {
+                    badge: "Limited Offer",
+                    color: "offer-gradient-1",
+                    text: "🎓 Up to 50% Merit Scholarships + Zero File Processing Fee for 2026 Intake!",
+                    btnText: "Claim Offer on WhatsApp",
+                    waMsg: "Hi Polaris Consultants! I want to claim the Up to 50% Scholarship & Zero Processing Fee Offer."
+                },
+                {
+                    badge: "New Batch Open",
+                    color: "offer-gradient-2",
+                    text: "✈️ Cabin Crew & Aviation Training — Early Bird Discount Available for Limited Seats!",
+                    btnText: "Book Seat on WhatsApp",
+                    waMsg: "Hi Polaris Consultants! I want details and Early Bird Discount for Cabin Crew & Aviation Training."
+                },
+                {
+                    badge: "Fast-Track Admission",
+                    color: "offer-gradient-3",
+                    text: "💻 Software Engineering & Associate Degrees — Apply Without IELTS (MOI Accepted)!",
+                    btnText: "Check Eligibility Now",
+                    waMsg: "Hi Polaris Consultants! I want to apply for Software Engineering / Associate Degree without IELTS."
+                }
+            ],
+            programs: [
+                {
+                    tag: "High Global Demand",
+                    title: "Software Engineering & IT",
+                    color: "blue",
+                    icon: "fa-laptop-code",
+                    desc: "International BS & MS degrees in Software Engineering, AI, Cyber Security, and Data Science with post-study work visas.",
+                    bullets: ["Up to 50% Merit Scholarships", "Paid Internship & Co-op Options", "MOI Accepted (No IELTS options)"]
+                },
+                {
+                    tag: "Smart & Affordable",
+                    title: "Associate Degree Programs",
+                    color: "emerald",
+                    icon: "fa-graduation-cap",
+                    desc: "2-Year international Associate Degrees with direct credit transfer into 3rd year of Bachelor's at top-ranked foreign universities.",
+                    bullets: ["Save up to 40% on tuition cost", "Flexible academic entry criteria", "Multiple intakes available"]
+                },
+                {
+                    tag: "Aviation Career",
+                    title: "Cabin Crew & Aviation Training",
+                    color: "red",
+                    icon: "fa-plane-departure",
+                    desc: "Professional international Cabin Crew, Airline Hospitality, and Aviation Operations training to launch your global airline career.",
+                    bullets: ["International grooming & safety", "Airline assessment & interview prep", "Fast-track certification"]
+                }
+            ],
+            universities: [
+                { name: "University of Hertfordshire", country: "🇬🇧 United Kingdom", fee: "£15,500/yr • £2,000 Scholarship", req: "MOI Accepted • Inter / Bachelors", intake: "Jan / May / Sep 2026" },
+                { name: "Deakin University", country: "🇦🇺 Australia", fee: "AUD 34,000/yr • 25% Merit Bursary", req: "IELTS 6.0 / PTE 50 • Post-Study Work", intake: "Feb / July / Nov 2026" },
+                { name: "University Canada West", country: "🇨🇦 Canada", fee: "CAD 19,800/yr • Entrance Grant", req: "PGWP Eligible • Co-op Available", intake: "Jan / Apr / July / Oct" }
+            ],
+            destinations: [
+                { flag: "🇬🇧", name: "United Kingdom", sub: "1-Year Masters • 2-Year PSW • With/Without IELTS" },
+                { flag: "🇦🇺", name: "Australia", sub: "Top Group of 8 & Level 1 Unis • High Post-Study Work Rights" },
+                { flag: "🇨🇦", name: "Canada", sub: "Co-op Degrees • PGWP Pathways • PR-Friendly Programs" },
+                { flag: "🇪🇺", name: "Europe & UAE", sub: "Affordable Tuition • High Visa Ratio • Fast Admission" }
+            ]
+        };
+
+        // Load Public Site Data + Private CRM/Finance Data
+        let siteData = JSON.parse(localStorage.getItem('polaris_site_data')) || JSON.parse(JSON.stringify(DEFAULT_SITE_DATA));
+        if (!siteData.universities) siteData.universities = DEFAULT_SITE_DATA.universities;
+
+        let crmData = JSON.parse(localStorage.getItem('polaris_crm_data')) || {
+            leads: [
+                { id: 1, date: "2026-11-13", name: "Sample Student (Ali Raza)", phone: "0300-1234567", city: "Lahore", qual: "FSC Pre-Eng (82%)", prog: "Software Engineering & IT (UK)", status: "New Lead" }
+            ],
+            finance: [
+                { id: 1, date: "2026-11-13", student: "Ali Raza", purpose: "Consultancy & Offer Processing", total: 50000, paid: 30000 }
+            ],
+            expenses: [
+                { id: 1, date: "2026-11-13", title: "Facebook & Instagram Lead Campaign", amount: 12000 }
+            ]
+        };
+
+        function saveAll() {
+            localStorage.setItem('polaris_site_data', JSON.stringify(siteData));
+            localStorage.setItem('polaris_crm_data', JSON.stringify(crmData));
+            renderEntireSite();
+            renderAdminAll();
+        }
+
+        function openWhatsApp(message) {
+            const url = `https://wa.me/${siteData.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Render Public Website
+        let currentSlide = 0;
+        function renderEntireSite() {
+            document.getElementById('displayAddressTop').textContent = siteData.address;
+            document.getElementById('displayAddressMain').textContent = siteData.address;
+            document.getElementById('displayAddressFooter').textContent = siteData.address;
+            document.getElementById('displayPhoneTop').textContent = siteData.phoneDisplay;
+            document.getElementById('displayPhoneMain').textContent = siteData.phoneDisplay;
+            document.getElementById('displayPhoneFooter').textContent = siteData.phoneDisplay;
+            document.getElementById('displayIntakeTop').textContent = siteData.intakeText;
+            document.getElementById('displayTimingsMain').textContent = siteData.timings;
+
+            // Offers
+            document.getElementById('offersContainer').innerHTML = siteData.offers.map((offer, idx) => `
+                <div class="offer-slide ${idx === 0 ? 'active' : ''} ${offer.color} text-white py-4 px-4">
+                    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 text-center md:text-left">
+                            <span class="bg-white text-slate-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">${offer.badge}</span>
+                            <p class="text-sm sm:text-base font-bold">${offer.text}</p>
+                        </div>
+                        <button onclick="openWhatsApp('${(offer.waMsg || offer.text).replace(/'/g, "\\'")}')" class="bg-white text-slate-900 hover:bg-slate-100 font-extrabold text-xs sm:text-sm px-5 py-2 rounded-full flex items-center gap-2 shrink-0 shadow transition cursor-pointer">
+                            <i class="fab fa-whatsapp text-base text-[#25D366]"></i> ${offer.btnText}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            currentSlide = 0;
+
+            // Programs
+            const progColorMap = {
+                blue: { bar: 'bg-blue-600', iconBg: 'bg-blue-600/10 text-blue-600', badge: 'text-blue-700 bg-blue-100', hover: 'hover:bg-blue-700' },
+                emerald: { bar: 'bg-emerald-500', iconBg: 'bg-emerald-500/10 text-emerald-600', badge: 'text-emerald-700 bg-emerald-100', hover: 'hover:bg-emerald-600' },
+                red: { bar: 'bg-red-600', iconBg: 'bg-red-600/10 text-red-600', badge: 'text-red-700 bg-red-100', hover: 'hover:bg-red-600' }
+            };
+            document.getElementById('programsContainer').innerHTML = siteData.programs.map(p => {
+                const c = progColorMap[p.color] || progColorMap.blue;
+                return `
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 card-hover flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-1.5 ${c.bar}"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-xl ${c.iconBg} flex items-center justify-center text-2xl mb-6">
+                                <i class="fas ${p.icon || 'fa-graduation-cap'}"></i>
+                            </div>
+                            <span class="text-xs font-bold ${c.badge} px-3 py-1 rounded-full">${p.tag}</span>
+                            <h3 class="text-xl font-extrabold text-[#071327] mt-4">${p.title}</h3>
+                            <p class="text-slate-600 text-sm mt-3 leading-relaxed">${p.desc}</p>
+                            <ul class="mt-5 space-y-2.5 text-sm text-slate-700">
+                                ${p.bullets.map(b => `<li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> ${b}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <button onclick="openWhatsApp('Hi Polaris Consultants! Please send me complete details for ${p.title.replace(/'/g, "\\'")}.')" class="mt-8 w-full py-3 px-4 rounded-xl bg-[#071327] ${c.hover} text-white font-bold text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                            <i class="fab fa-whatsapp text-lg text-[#25D366]"></i> Get Details on WhatsApp
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            // Universities
+            document.getElementById('universitiesContainer').innerHTML = siteData.universities.map(u => `
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start gap-2">
+                            <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md">${u.country}</span>
+                            <span class="text-[11px] font-semibold text-emerald-600">${u.intake}</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-[#071327] mt-3">${u.name}</h3>
+                        <p class="text-xs font-bold text-red-600 mt-1.5">${u.fee}</p>
+                        <p class="text-xs text-slate-500 mt-2"><i class="fas fa-check text-emerald-500 mr-1"></i> ${u.req}</p>
+                    </div>
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! I want admission & scholarship details for ${u.name.replace(/'/g, "\\'")}.')" class="mt-5 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-sm"></i> Apply in This University
+                    </button>
+                </div>
+            `).join('');
+
+            // Destinations
+            document.getElementById('destinationsContainer').innerHTML = siteData.destinations.map(d => `
+                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 card-hover">
+                    <div class="text-4xl mb-3">${d.flag}</div>
+                    <h3 class="font-extrabold text-lg text-[#071327]">${d.name}</h3>
+                    <p class="text-xs text-slate-500 mt-1">${d.sub}</p>
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! I want complete study visa details for ${d.name.replace(/'/g, "\\'")}.')" class="mt-4 text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1.5 cursor-pointer">
+                        <i class="fab fa-whatsapp text-sm"></i> Inquire ${d.name} Options
+                    </button>
+                </div>
+            `).join('');
+
+            // Dropdowns
+            const progOptions = siteData.programs.map(p => `<option value="${p.title}">${p.title}</option>`).join('') + `<option value="Scholarship Offer Inquiry">Claim Scholarship Offer</option>`;
+            document.getElementById('leadProgram').innerHTML = progOptions;
+            document.getElementById('detStream').innerHTML = progOptions;
+
+            const destOptions = siteData.destinations.map(d => `<option value="${d.name}">${d.name}</option>`).join('') + `<option value="Suggest Best Country">Suggest Best Country</option>`;
+            document.getElementById('detCountry').innerHTML = destOptions;
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.offer-slide');
+            if (!slides.length) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(() => changeSlide(1), 4000);
+
+        // ==================== ADMIN ERP FUNCTIONS ====================
+        function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
+        function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
+
+        function verifyAdminLogin() {
+            if (document.getElementById('adminPasswordInput').value === siteData.adminPassword) {
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+                document.getElementById('loginErrorMsg').classList.add('hidden');
+                renderAdminAll();
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function switchAdminTab(tabId, btn) {
+            document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+            document.querySelectorAll('.admin-tab-btn').forEach(b => {
+                b.classList.remove('bg-[#071327]', 'text-white');
+                b.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            if (btn) {
+                btn.classList.remove('bg-slate-100', 'text-slate-700');
+                btn.classList.add('bg-[#071327]', 'text-white');
+            }
+            if (tabId === 'tabSettings') {
+                document.getElementById('exportDataBox').value = `const DEFAULT_SITE_DATA = ${JSON.stringify(siteData, null, 4)};`;
+            }
+        }
+
+        function renderAdminAll() {
+            // KPI Calculations
+            const totalLeads = crmData.leads.length;
+            const totalPaid = crmData.finance.reduce((sum, f) => sum + Number(f.paid || 0), 0);
+            const totalAgreed = crmData.finance.reduce((sum, f) => sum + Number(f.total || 0), 0);
+            const totalPending = totalAgreed - totalPaid;
+            const totalExpenses = crmData.expenses.reduce((sum, e) => sum + Number(e.amount || 0), 0);
+            const netProfit = totalPaid - totalExpenses;
+
+            document.getElementById('kpiTotalLeads').textContent = totalLeads;
+            document.getElementById('kpiTotalPaid').textContent = `Rs ${totalPaid.toLocaleString()}`;
+            document.getElementById('kpiTotalPending').textContent = `Rs ${totalPending.toLocaleString()}`;
+            document.getElementById('kpiNetProfit').textContent = `Rs ${netProfit.toLocaleString()}`;
+
+            // 1. Leads Table
+            document.getElementById('adminLeadsTable').innerHTML = crmData.leads.map((l, idx) => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 text-slate-500">${l.date}</td>
+                    <td class="p-3 font-bold text-[#071327]">${l.name}<br><span class="text-emerald-600 font-normal">${l.phone} • ${l.city || ''}</span></td>
+                    <td class="p-3">${l.qual}</td>
+                    <td class="p-3 font-semibold">${l.prog}</td>
+                    <td class="p-3">
+                        <select onchange="updateLeadStatus(${idx}, this.value)" class="px-2 py-1 rounded border border-slate-300 text-xs bg-white font-semibold">
+                            ${['New Lead', 'Follow-up', 'Offer Applied', 'Visa Filed', 'Visa Approved'].map(st => `<option value="${st}" ${l.status === st ? 'selected' : ''}>${st}</option>`).join('')}
+                        </select>
+                    </td>
+                    <td class="p-3 text-right space-x-1">
+                        <button onclick="openWhatsApp('Hello ${l.name.replace(/'/g, "\\'")}! Regarding your inquiry at Polaris Consultants for ${l.prog.replace(/'/g, "\\'")}...')" class="bg-emerald-500 text-white px-2.5 py-1 rounded font-bold cursor-pointer"><i class="fab fa-whatsapp"></i></button>
+                        <button onclick="deleteLead(${idx})" class="bg-red-100 text-red-600 hover:bg-red-600 hover:text-white px-2.5 py-1 rounded font-bold cursor-pointer">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // 2. Finance Table
+            document.getElementById('adminFinanceTable').innerHTML = crmData.finance.map((f, idx) => {
+                const due = Number(f.total) - Number(f.paid);
+                return `
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 text-slate-500">${f.date}</td>
+                        <td class="p-3 font-bold">${f.student}</td>
+                        <td class="p-3">${f.purpose}</td>
+                        <td class="p-3 font-semibold">Rs ${Number(f.total).toLocaleString()}</td>
+                        <td class="p-3 text-emerald-600 font-bold">Rs ${Number(f.paid).toLocaleString()}</td>
+                        <td class="p-3 font-bold ${due > 0 ? 'text-red-600' : 'text-slate-400'}">Rs ${due.toLocaleString()}</td>
+                        <td class="p-3 text-right space-x-1">
+                            ${due > 0 ? `<button onclick="markFeePaid(${idx})" class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded font-bold cursor-pointer">Clear Due</button>` : ''}
+                            <button onclick="deleteFinance(${idx})" class="bg-red-100 text-red-600 px-2 py-1 rounded font-bold cursor-pointer">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            // Expenses List
+            document.getElementById('adminExpensesList').innerHTML = crmData.expenses.map((e, idx) => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                    <div><span class="text-slate-400 mr-2">${e.date}</span> <strong>${e.title}</strong></div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-red-600">- Rs ${Number(e.amount).toLocaleString()}</span>
+                        <button onclick="deleteExpense(${idx})" class="bg-red-100 text-red-600 px-2.5 py-1 rounded font-bold cursor-pointer">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // 3. Universities List
+            document.getElementById('adminUniversitiesList').innerHTML = siteData.universities.map((u, i) => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                    <div><strong>${u.name}</strong> (${u.country}) — <span class="text-red-600">${u.fee}</span></div>
+                    <button onclick="deleteUniversity(${i})" class="bg-red-100 text-red-600 hover:bg-red-600 hover:text-white font-bold px-3 py-1 rounded cursor-pointer">Delete</button>
+                </div>
+            `).join('');
+
+            // 4. Programs List
+            document.getElementById('adminProgramsList').innerHTML = siteData.programs.map((p, i) => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                    <div><strong>${p.title}</strong> — ${p.tag}</div>
+                    <button onclick="deleteProgram(${i})" class="bg-red-100 text-red-600 hover:bg-red-600 hover:text-white font-bold px-3 py-1 rounded cursor-pointer">Delete</button>
+                </div>
+            `).join('');
+
+            // 5. Offers & Countries
+            document.getElementById('adminOffersList').innerHTML = siteData.offers.map((o, i) => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                    <div><span class="font-bold text-red-600">[${o.badge}]</span> ${o.text}</div>
+                    <button onclick="deleteOffer(${i})" class="bg-red-100 text-red-600 font-bold px-3 py-1 rounded cursor-pointer">Delete</button>
+                </div>
+            `).join('');
+
+            document.getElementById('adminDestinationsList').innerHTML = siteData.destinations.map((d, i) => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                    <div>${d.flag} <strong>${d.name}</strong> — ${d.sub}</div>
+                    <button onclick="deleteDestination(${i})" class="bg-red-100 text-red-600 font-bold px-3 py-1 rounded cursor-pointer">Delete</button>
+                </div>
+            `).join('');
+
+            // Settings
+            document.getElementById('setWaNumber').value = siteData.whatsappNumber;
+            document.getElementById('setPhoneDisplay').value = siteData.phoneDisplay;
+            document.getElementById('setIntakeText').value = siteData.intakeText;
+            document.getElementById('setAddress').value = siteData.address;
+            document.getElementById('setAdminPass').value = siteData.adminPassword;
+        }
+
+        // CRUD Operations
+        const todayStr = () => new Date().toISOString().split('T')[0];
+
+        function addLeadManual() {
+            const name = document.getElementById('crmLeadName').value;
+            const phone = document.getElementById('crmLeadPhone').value;
+            if (!name || !phone) return alert("Student Name and Phone required!");
+            crmData.leads.unshift({
+                id: Date.now(), date: todayStr(), name, phone,
+                city: document.getElementById('crmLeadCity').value || "Lahore",
+                qual: document.getElementById('crmLeadQual').value || "N/A",
+                prog: document.getElementById('crmLeadProg').value || "General Inquiry",
+                status: document.getElementById('crmLeadStatus').value
+            });
+            document.getElementById('crmLeadName').value = '';
+            document.getElementById('crmLeadPhone').value = '';
+            saveAll();
+        }
+        function updateLeadStatus(idx, val) { crmData.leads[idx].status = val; saveAll(); }
+        function deleteLead(idx) { crmData.leads.splice(idx, 1); saveAll(); }
+
+        function addFinanceRecord() {
+            const student = document.getElementById('finStudent').value;
+            const total = Number(document.getElementById('finTotal').value);
+            const paid = Number(document.getElementById('finPaid').value);
+            if (!student || !total) return alert("Student Name and Total Fee required!");
+            crmData.finance.unshift({
+                id: Date.now(), date: todayStr(), student,
+                purpose: document.getElementById('finPurpose').value || "Consultancy Fee",
+                total, paid
+            });
+            document.getElementById('finStudent').value = '';
+            document.getElementById('finTotal').value = '';
+            document.getElementById('finPaid').value = '';
+            saveAll();
+        }
+        function markFeePaid(idx) { crmData.finance[idx].paid = crmData.finance[idx].total; saveAll(); }
+        function deleteFinance(idx) { crmData.finance.splice(idx, 1); saveAll(); }
+
+        function addExpenseRecord() {
+            const title = document.getElementById('expTitle').value;
+            const amount = Number(document.getElementById('expAmount').value);
+            if (!title || !amount) return alert("Expense title and amount required!");
+            crmData.expenses.unshift({ id: Date.now(), date: todayStr(), title, amount });
+            document.getElementById('expTitle').value = '';
+            document.getElementById('expAmount').value = '';
+            saveAll();
+        }
+        function deleteExpense(idx) { crmData.expenses.splice(idx, 1); saveAll(); }
+
+        function addUniversity() {
+            const name = document.getElementById('uniName').value;
+            const country = document.getElementById('uniCountry').value;
+            if (!name || !country) return alert("University Name and Country required!");
+            siteData.universities.unshift({
+                name, country,
+                fee: document.getElementById('uniFee').value || "Scholarship Available",
+                req: document.getElementById('uniReq').value || "MOI / IELTS Accepted",
+                intake: document.getElementById('uniIntake').value || "2026 Intakes"
+            });
+            document.getElementById('uniName').value = '';
+            saveAll();
+        }
+        function deleteUniversity(i) { siteData.universities.splice(i, 1); saveAll(); }
+
+        function addProgram() {
+            const title = document.getElementById('newProgTitle').value;
+            const desc = document.getElementById('newProgDesc').value;
+            if (!title || !desc) return alert("Program Title and Description required!");
+            const bulletsRaw = document.getElementById('newProgBullets').value;
+            siteData.programs.push({
+                tag: document.getElementById('newProgTag').value || "Featured",
+                title, color: document.getElementById('newProgColor').value, icon: "fa-graduation-cap", desc,
+                bullets: bulletsRaw ? bulletsRaw.split(',').map(s => s.trim()) : ["Scholarship Available", "Expert Guidance"]
+            });
+            document.getElementById('newProgTitle').value = '';
+            document.getElementById('newProgDesc').value = '';
+            saveAll();
+        }
+        function deleteProgram(i) { siteData.programs.splice(i, 1); saveAll(); }
+
+        function addOffer() {
+            const text = document.getElementById('newOfferText').value;
+            if (!text) return alert("Offer Headline required!");
+            siteData.offers.unshift({
+                badge: document.getElementById('newOfferBadge').value || "Limited Offer",
+                color: document.getElementById('newOfferColor').value,
+                text, btnText: document.getElementById('newOfferBtn').value || "Claim on WhatsApp",
+                waMsg: `Hi Polaris Consultants! I want to claim: ${text}`
+            });
+            document.getElementById('newOfferText').value = '';
+            saveAll();
+        }
+        function deleteOffer(i) { siteData.offers.splice(i, 1); saveAll(); }
+
+        function addDestination() {
+            const name = document.getElementById('newDestName').value;
+            if (!name) return alert("Country Name required!");
+            siteData.destinations.push({
+                flag: document.getElementById('newDestFlag').value || "🌍",
+                name, sub: document.getElementById('newDestSub').value || "Admissions Open"
+            });
+            document.getElementById('newDestName').value = '';
+            saveAll();
+        }
+        function deleteDestination(i) { siteData.destinations.splice(i, 1); saveAll(); }
+
+        function saveSettings() {
+            siteData.whatsappNumber = document.getElementById('setWaNumber').value;
+            siteData.phoneDisplay = document.getElementById('setPhoneDisplay').value;
+            siteData.intakeText = document.getElementById('setIntakeText').value;
+            siteData.address = document.getElementById('setAddress').value;
+            siteData.adminPassword = document.getElementById('setAdminPass').value;
+            saveAll();
+            alert("Settings Saved!");
+        }
+
+        function copyExportedData() {
+            const box = document.getElementById('exportDataBox');
+            box.select();
+            document.execCommand('copy');
+            alert("Public Website Data Copied!");
+        }
+
+        // Export Excel CSV
+        function exportCSV(type) {
+            let csv = "";
+            if (type === 'leads') {
+                csv = "Date,Name,Phone,City,Qualification,Program,Status\n" +
+                      crmData.leads.map(l => `"${l.date}","${l.name}","${l.phone}","${l.city}","${l.qual}","${l.prog}","${l.status}"`).join("\n");
+            } else {
+                csv = "Date,Student,Purpose,TotalFee,Paid,Balance\n" +
+                      crmData.finance.map(f => `"${f.date}","${f.student}","${f.purpose}",${f.total},${f.paid},${f.total - f.paid}`).join("\n");
+            }
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `Polaris_${type}_${todayStr()}.csv`;
+            a.click();
+        }
+
+        // Auto-Capture Website Forms into Lead CRM + Open WhatsApp
+        document.getElementById('quickWhatsAppForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('leadName').value;
+            const phone = document.getElementById('leadPhone').value;
+            const prog = document.getElementById('leadProgram').value;
+            const qual = document.getElementById('leadQual').value;
+
+            crmData.leads.unshift({ id: Date.now(), date: todayStr(), name, phone, city: "Web Lead", qual, prog, status: "New Lead" });
+            saveAll();
+
+            const msg = `*New Website Inquiry - Polaris Consultants*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Program/Offer:* ${prog}\n*Qualification:* ${qual}`;
+            openWhatsApp(msg);
+        });
+
+        document.getElementById('detailedWhatsAppForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('detName').value;
+            const phone = document.getElementById('detPhone').value;
+            const city = document.getElementById('detCity').value;
+            const country = document.getElementById('detCountry').value;
+            const stream = document.getElementById('detStream').value;
+            const edu = document.getElementById('detEdu').value;
+            const english = document.getElementById('detEnglish').value;
+
+            crmData.leads.unshift({ id: Date.now(), date: todayStr(), name, phone, city, qual: `${edu} (${english})`, prog: `${stream} - ${country}`, status: "New Lead" });
+            saveAll();
+
+            const msg = `*Detailed Profile Assessment - Polaris Consultants*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*City:* ${city}\n*Country:* ${country}\n*Program:* ${stream}\n*Qualification:* ${edu}\n*IELTS/PTE:* ${english}`;
+            openWhatsApp(msg);
+        });
+
+        // Initial Render
+        renderEntireSite();
+    </script>
+</body>
+</html>00;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .brand-gradient {
