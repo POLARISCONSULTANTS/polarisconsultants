@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris Consultants® | Global Education, IT & Aviation Career Advisory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .brand-gradient {
+            background: linear-gradient(135deg, #071327 0%, #0f2952 55%, #163a70 100%);
+        }
+        .offer-gradient-1 {
+            background: linear-gradient(90deg, #e11d48 0%, #f97316 100%);
+        }
+        .offer-gradient-2 {
+            background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
+        }
+        .offer-gradient-3 {
+            background: linear-gradient(90deg, #7c3aed 0%, #e11d48 100%);
+        }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float { animation: pulse-green 2s infinite; }
+        
+        /* Smooth Banner Transition */
+        .offer-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .offer-slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.4; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Top Address & Quick Info Bar -->
+    <div class="bg-[#071327] text-slate-300 text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5">
+            <div>
+                <i class="fas fa-map-marker-alt text-red-500 mr-1.5"></i>
+                Zam Zam Mall, H3 Block, Near Moghal Eye Hospital, Lahore
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-emerald-400 font-semibold"><i class="fas fa-circle text-[7px] mr-1.5"></i> Admissions Open 2026/2027</span>
+                <span class="hidden md:inline text-slate-400">|</span>
+                <button onclick="openWhatsApp('Hello Polaris Consultants! I need quick information.')" class="hidden md:inline hover:text-white transition cursor-pointer">
+                    <i class="fab fa-whatsapp text-emerald-400 mr-1"></i> Instant WhatsApp Support
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar with Your Exact Logo -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="Polaris Consultants Ribbon Star Logo.png" onerror="this.onerror=null; this.src='logo.png';" alt="Polaris Consultants Logo" class="h-14 w-auto object-contain">
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-700">
+                    <a href="#offers" class="text-red-600 hover:text-red-700 flex items-center gap-1.5 transition">
+                        <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span> Live Offers
+                    </a>
+                    <a href="#programs" class="hover:text-blue-700 transition">Programs</a>
+                    <a href="#destinations" class="hover:text-blue-700 transition">Destinations</a>
+                    <a href="#services" class="hover:text-blue-700 transition">Services</a>
+                    <a href="#assessment" class="hover:text-blue-700 transition">Free Assessment</a>
+                </div>
+
+                <!-- Direct WhatsApp Button -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openWhatsApp('Hello Polaris Consultants! I visited your website and want to discuss my study/career options.')" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 py-2.5 rounded-full text-sm flex items-center gap-2 shadow-md transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Chat on WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- RUNNING PROMOTIONAL OFFER BANNER SLIDER (Auto-Rotating + Manual Controls) -->
+    <section id="offers" class="relative overflow-hidden shadow-md">
+        <!-- Slide 1: Scholarship & Fee Waiver Offer -->
+        <div class="offer-slide active offer-gradient-1 text-white py-4 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-3 text-center md:text-left">
+                    <span class="bg-white text-red-600 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Limited Offer</span>
+                    <p class="text-sm sm:text-base font-bold">
+                        🎓 Up to <span class="underline decoration-yellow-300 decoration-2">50% Merit Scholarships</span> + Zero File Processing Fee for 2026 Intake!
+                    </p>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! I want to claim the Up to 50% Scholarship & Zero Processing Fee Offer.')" class="bg-white text-red-600 hover:bg-slate-100 font-extrabold text-xs sm:text-sm px-5 py-2 rounded-full flex items-center gap-2 shrink-0 shadow transition cursor-pointer">
+                    <i class="fab fa-whatsapp text-base text-[#25D366]"></i> Claim Offer on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Cabin Crew & Aviation Batch Offer -->
+        <div class="offer-slide offer-gradient-2 text-white py-4 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-3 text-center md:text-left">
+                    <span class="bg-white text-sky-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">New Batch Open</span>
+                    <p class="text-sm sm:text-base font-bold">
+                        ✈️ <span class="underline decoration-yellow-200 decoration-2">Cabin Crew & Aviation Training</span> — Early Bird Discount Available for Limited Seats!
+                    </p>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! I want details and Early Bird Discount for Cabin Crew & Aviation Training.')" class="bg-white text-sky-700 hover:bg-slate-100 font-extrabold text-xs sm:text-sm px-5 py-2 rounded-full flex items-center gap-2 shrink-0 shadow transition cursor-pointer">
+                    <i class="fab fa-whatsapp text-base text-[#25D366]"></i> Book Seat on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Software Engineering & Associate Degree Offer -->
+        <div class="offer-slide offer-gradient-3 text-white py-4 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-3 text-center md:text-left">
+                    <span class="bg-white text-purple-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Fast-Track Admission</span>
+                    <p class="text-sm sm:text-base font-bold">
+                        💻 <span class="underline decoration-yellow-200 decoration-2">Software Engineering & Associate Degrees</span> — Apply Without IELTS (MOI Accepted)!
+                    </p>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! I want to apply for Software Engineering / Associate Degree without IELTS.')" class="bg-white text-purple-700 hover:bg-slate-100 font-extrabold text-xs sm:text-sm px-5 py-2 rounded-full flex items-center gap-2 shrink-0 shadow transition cursor-pointer">
+                    <i class="fab fa-whatsapp text-base text-[#25D366]"></i> Check Eligibility Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <button onclick="changeSlide(-1)" aria-label="Previous Offer" class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/25 hover:bg-black/40 text-white items-center justify-center text-xs cursor-pointer">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button onclick="changeSlide(1)" aria-label="Next Offer" class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/25 hover:bg-black/40 text-white items-center justify-center text-xs cursor-pointer">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="brand-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-bold tracking-wide uppercase">
+                        <i class="fas fa-star text-red-400"></i> Polaris Consultants® • Lahore
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                        Guiding Your Future to <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-red-400">Global Success</span>
+                    </h1>
+                    <p class="text-slate-200 text-lg max-w-2xl leading-relaxed">
+                        Authorized educational & career consultants specializing in International Higher Education, Software Engineering, Associate Degrees, and Cabin Crew Aviation Training.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <button onclick="openWhatsApp('Hi Polaris Consultants! I want free career and study abroad counseling.')" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-3 shadow-lg transition cursor-pointer">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>Direct WhatsApp Counseling</span>
+                        </button>
+                        <a href="#programs" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2 transition">
+                            <span>Explore Programs</span>
+                            <i class="fas fa-arrow-down text-sm"></i>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/15 max-w-lg">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">98%</div>
+                            <div class="text-xs text-slate-300 mt-1">Admission Success</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-amber-300">50+</div>
+                            <div class="text-xs text-slate-300 mt-1">Partner Institutions</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-sky-300">100%</div>
+                            <div class="text-xs text-slate-300 mt-1">Direct Guidance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant WhatsApp Lead Box -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border-t-4 border-red-600">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="text-xs font-bold text-red-600 uppercase">Free Evaluation</span>
+                                <h3 class="text-xl font-extrabold text-[#071327]">Instant WhatsApp Callback</h3>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-emerald-50 text-[#25D366] flex items-center justify-center text-2xl">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                        </div>
+                        <form id="quickWhatsAppForm" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Full Name</label>
+                                <input type="text" id="leadName" required placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Select Program / Offer</label>
+                                <select id="leadProgram" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm bg-white">
+                                    <option value="Software Engineering & IT">Software Engineering & IT</option>
+                                    <option value="Associate Degree Program">Associate Degree Program</option>
+                                    <option value="Cabin Crew & Aviation Training">Cabin Crew & Aviation Training</option>
+                                    <option value="Study Abroad (UK / Australia / Canada / Europe)">Study Abroad (UK / AUS / CAN / EU)</option>
+                                    <option value="Scholarship Offer Inquiry">Claim 50% Scholarship Offer</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Last Qualification & Marks</label>
+                                <input type="text" id="leadQual" required placeholder="e.g., Inter / A-Levels / Bachelors (75%)" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 text-sm">
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md cursor-pointer">
+                                <span>Send Directly to WhatsApp</span>
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Programs Section -->
+    <section id="programs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-red-600">Specialized Career Streams</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#071327] mt-2">Our Flagship Programs</h2>
+                <p class="text-slate-600 mt-3">Choose a career-focused international pathway tailored to your academic background and future ambitions.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Stream 1: Software Engineering -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 card-hover flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-blue-600"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-blue-600/10 text-blue-600 flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="text-xs font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full">High Global Demand</span>
+                        <h3 class="text-xl font-extrabold text-[#071327] mt-4">Software Engineering & IT</h3>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                            International BS & MS degrees in Software Engineering, AI, Cyber Security, and Data Science with post-study work visas.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-700">
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Up to 50% Merit Scholarships</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Paid Internship & Co-op Options</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> MOI Accepted (No IELTS options)</li>
+                        </ul>
+                    </div>
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! Please send me complete fee structure and admission details for Software Engineering & IT.')" class="mt-8 w-full py-3 px-4 rounded-xl bg-[#071327] hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-lg text-[#25D366]"></i> Get Details on WhatsApp
+                    </button>
+                </div>
+
+                <!-- Stream 2: Associate Degree Programs -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 card-hover flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-emerald-500"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Smart & Affordable</span>
+                        <h3 class="text-xl font-extrabold text-[#071327] mt-4">Associate Degree Programs</h3>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                            2-Year international Associate Degrees with direct credit transfer into 3rd year of Bachelor's at top-ranked foreign universities.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-700">
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Save up to 40% on tuition cost</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Flexible academic entry criteria</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Multiple intakes available</li>
+                        </ul>
+                    </div>
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! I want complete details about Associate Degree Programs.')" class="mt-8 w-full py-3 px-4 rounded-xl bg-[#071327] hover:bg-emerald-600 text-white font-bold text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-lg text-[#25D366]"></i> Get Details on WhatsApp
+                    </button>
+                </div>
+
+                <!-- Stream 3: Cabin Crew & Aviation -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 card-hover flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-red-600"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-red-600/10 text-red-600 flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <span class="text-xs font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full">Aviation Career</span>
+                        <h3 class="text-xl font-extrabold text-[#071327] mt-4">Cabin Crew & Aviation Training</h3>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                            Professional international Cabin Crew, Airline Hospitality, and Aviation Operations training to launch your global airline career.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-700">
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> International grooming & safety</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Airline assessment & interview prep</li>
+                            <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i> Fast-track certification</li>
+                        </ul>
+                    </div>
+                    <button onclick="openWhatsApp('Hi Polaris Consultants! Please share fees, duration, and eligibility for Cabin Crew & Aviation Training.')" class="mt-8 w-full py-3 px-4 rounded-xl bg-[#071327] hover:bg-red-600 text-white font-bold text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+                        <i class="fab fa-whatsapp text-lg text-[#25D366]"></i> Get Details on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Destinations -->
+    <section id="destinations" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-blue-600">Global Destinations</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#071327] mt-2">Where Do You Want to Study?</h2>
+                </div>
+                <button onclick="openWhatsApp('Hi Polaris Consultants! Help me choose the best country according to my budget and marks.')" class="text-sm font-bold text-red-600 hover:underline flex items-center gap-2 cursor-pointer">
+                    <span>Need country comparison? Chat on WhatsApp</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 card-hover">
+                    <div class="text-4xl mb-3">🇬🇧</div>
+                    <h3 class="font-extrabold text-lg text-[#071327]">United Kingdom</h3>
+                    <p class="text-xs text-slate-500 mt-1">1-Year Masters • 2-Year PSW • With/Without IELTS</p>
+                    <button onclick="openWhatsApp('Hi! I want complete details for UK Study Visa.')" class="mt-4 text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1.5 cursor-pointer">
+                        <i class="fab fa-whatsapp text-sm"></i> Inquire UK Options
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 card-hover">
+                    <div class="text-4xl mb-3">🇦🇺</div>
+                    <h3 class="font-extrabold text-lg text-[#071327]">Australia</h3>
+                    <p class="text-xs text-slate-500 mt-1">Top Group of 8 & Level 1 Unis • High Post-Study Work Rights</p>
+                    <button onclick="openWhatsApp('Hi! I want complete details for Australia Study Visa.')" class="mt-4 text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1.5
